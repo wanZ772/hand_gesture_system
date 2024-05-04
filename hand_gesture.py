@@ -38,7 +38,7 @@ class HandGesture():
                 
                 
                 for id, landmarks in enumerate(hand_landmarks.landmark):
-                    height, width, channel = image.shape
+                    height, width, distance = image.shape
                     center_x, center_y = int(landmarks.x * width), int(landmarks.y * height)
                     if id == 4:
                         thumb_finger = center_x, center_y
@@ -60,6 +60,7 @@ class HandGesture():
                         # control_unit(percentage)
                 mediapipe_draws.draw_landmarks(image, hand_landmarks, mediapipe_hands.HAND_CONNECTIONS)
 
+                # return distance
                 return percentage
 
 

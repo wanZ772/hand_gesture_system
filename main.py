@@ -10,7 +10,7 @@ def main():
         status, image = cam.read()
         imageRGB = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         percentage = HandGesture().hand_processing(imageRGB = imageRGB, image = image)
-        Controller().volume_controller(volume=percentage)
+        Controller().motor_speed(speed=percentage)
         cv2.imshow("Motor Hand Gesture Controller", image)
         cv2.waitKey(1)
 
